@@ -1,0 +1,10 @@
+const xlsx = require('xlsx');
+const workbook = xlsx.readFile("input.xlsx");
+//console.log(workbook.SheetNames);
+const teachers = workbook.Sheets['TeacherList'];
+const courses = workbook.Sheets['CourseList'];
+const slot = workbook.Sheets['FreeSlot'];
+const teachers_json = xlsx.utils.json_to_sheet(teachers);
+const courses_json = xlsx.utils.json_to_sheet(courses);
+const slot_json = xlsx.utils.json_to_sheet(slot);
+module.exports = {'TeacherList':teachers_json,'CourseList':courses_json,'FreeSlot':slot_json};
